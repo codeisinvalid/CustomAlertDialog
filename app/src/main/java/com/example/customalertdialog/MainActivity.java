@@ -25,6 +25,29 @@ public class MainActivity extends AppCompatActivity {
 
 
         findViewById(R.id.ButtonError).setOnClickListener(v -> showErrorDialog());
+
+
+        findViewById(R.id.ButtonNew).setOnClickListener(v -> showImageDialog());
+    }
+
+    private void showImageDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
+        View view = LayoutInflater.from(MainActivity.this).inflate(
+                R.layout.new_alert_dialog,
+                (ConstraintLayout)findViewById(R.id.layoutDialogContainer)
+        );
+        builder.setView(view);
+
+
+        AlertDialog alertDialog = builder.create();
+        view.findViewById(R.id.deleteButton).setOnClickListener(v -> alertDialog.dismiss());
+        view.findViewById(R.id.cancelButton).setOnClickListener(v -> alertDialog.dismiss());
+
+        if (alertDialog.getWindow()!= null) {
+            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        }
+        alertDialog.show();
     }
 
     private void showSuccessDialog() {
@@ -41,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog alertDialog = builder.create();
         view.findViewById(R.id.actionButton).setOnClickListener(v -> alertDialog.dismiss());
+
 
         if (alertDialog.getWindow()!= null) {
             alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));

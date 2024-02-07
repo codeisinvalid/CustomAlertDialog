@@ -32,6 +32,13 @@
         android:textSize="16sp"
         tools:ignore="ButtonStyle"/>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ButtonNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="image"
+        android:textSize="16sp"
+        tools:ignore="ButtonStyle"/>
 
 
 </LinearLayout>
